@@ -30,8 +30,10 @@ body {
     border: 5px solid red;
     height: 720px * 1.1;
     width: 1280px * 1.1;
-    box-shadow: 10px 10px 8px #888888
+    box-shadow: 10px 10px 8px #888888;
 }
+
+
 
 .title {
     position: absolute;
@@ -50,4 +52,33 @@ body {
 
 .nextBtn {
     right: 10px;
+}
+
+.dot {
+    border: 5px solid white;
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    background-color: white;
+    opacity: .5;
+    transition: all 300ms ease-in-out;
+}
+
+.dot:hover {
+    opacity: .8;
+    height: 16px;
+    width: 16px;
+}
+
+.dot.active {
+    opacity: .8;
+    height: 16px;
+    width: 16px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 150px;
+    display: flex;
+    gap: 10px;
 }
