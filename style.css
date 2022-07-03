@@ -1,0 +1,53 @@
+*,
+*::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+    height: 720px * 1.1;
+    width: 1280px * 1.1;
+    box-shadow: 10px 10px 8px #888888
+}
+
+.title {
+    position: absolute;
+    top: 30px;
+}
+
+.nextBtn,
+.previousBtn {
+    position: absolute;
+    opacity: .7;
+}
+
+.previousBtn {
+    left: 10px;
+}
+
+.nextBtn {
+    right: 10px;
+}
