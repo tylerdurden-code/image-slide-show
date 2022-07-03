@@ -28,19 +28,6 @@ function makeActive() {
     }
   });
 }
-function appendBullets() {
-  for (let i = 0; i < myImages.length; i += 1) {
-    const dot = document.createElement('div');
-    if (i === 0) {
-      dot.classList.add('dot');
-      dot.dataset.imageAttached = myImages[i].name;
-    } else {
-      dot.classList.add('dot');
-      dot.dataset.imageAttached = myImages[i].name;
-    }
-    dots.appendChild(dot);
-  }
-}
 
 function appendImg(imgUrl) {
   const img = document.createElement('img');
@@ -131,6 +118,36 @@ function previous() {
       console.log(myImages);
       return;
     }
+  }
+}
+function bulletClick(dot) {
+  const picture = dot.dataset.imageAttached;
+  myImages.forEach((img) => {
+    if (picture === img.name) {
+      myImages.forEach((imgo) => {
+        if (imgo.imgUrl === findCurrentPhoto()) {
+          imgo.active = false;
+        }
+      });
+      renderImg(img.imgUrl);
+      // makeActive();
+    }
+  });
+}
+function appendBullets() {
+  for (let i = 0; i < myImages.length; i += 1) {
+    const dot = document.createElement('div');
+    if (i === 0) {
+      dot.classList.add('dot');
+      dot.dataset.imageAttached = myImages[i].name;
+    } else {
+      dot.classList.add('dot');
+      dot.dataset.imageAttached = myImages[i].name;
+    }
+    dot.addEventListener('click', () => {
+      bulletClick(dot);
+    });
+    dots.appendChild(dot);
   }
 }
 nextBtn.addEventListener('click', () => {
