@@ -157,9 +157,31 @@ nextBtn.addEventListener('click', () => {
 previousBtn.addEventListener('click', () => {
   previous();
 });
+const inactivityTime = function () {
+  let time;
+  window.onload = resetTimer;
+  window.onmousemove = resetTimer;
+  window.onmousedown = resetTimer; // catches touchscreen presses as well
+  window.ontouchstart = resetTimer; // catches touchscreen swipes as well
+  window.ontouchmove = resetTimer; // required by some devices
+  window.onclick = resetTimer; // catches touchpad clicks as well
+  window.onkeydown = resetTimer;
+  window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(next, 5000);
+    // 1000 milliseconds = 1 second
+  }
+};
+
+// setInterval(next, 5000);
 renderFirstPhoto();
 findCurrentPhoto();
 appendBullets();
 findCurrentDiv();
 makeActive();
+window.onload = function () {
+  inactivityTime();
+};
 // next();
