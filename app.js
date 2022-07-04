@@ -130,7 +130,8 @@ function bulletClick(dot) {
         }
       });
       renderImg(img.imgUrl);
-      // makeActive();
+      img.active = true;
+      makeActive();
     }
   });
 }
